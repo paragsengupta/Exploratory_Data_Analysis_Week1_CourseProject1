@@ -3,6 +3,14 @@
 # Initializing
 # please move into the folder in which you unzipped the dataset (setwd())
 setwd("d:/Data Science John Hopkins/Exploratory Data Analysis/data")
+if(!file.exists("exdata_data_household_power_consumption.zip")) {
+download.file(
+"https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip",
+"household_power_consumption.zip",
+mode="wb"
+)
+unzip("exdata_data_household_power_consumption.zip", overwrite=TRUE)
+}
 dt=read.csv("household_power_consumption.txt",header=T, sep=';')
 # read the textfile which is formatted as a csv
 dt$Datetime = paste(as.character(dt[,1]) , dt[,2])
